@@ -40,9 +40,8 @@ public class Banco {
 				.findFirst();
 	}
 
-	public static void editarEmpresa(Integer idEmpresa, Empresa empresa) {
-		Integer indexOfEmpresa = empresas.indexOf(getEmpresaById(idEmpresa).get());
-		empresa.setId(idEmpresa);
+	public static void editarEmpresa(Empresa empresa) {
+		Integer indexOfEmpresa = empresas.indexOf(getEmpresaById(empresa.getId()).get());
 		empresas.set(indexOfEmpresa, empresa);
 	}
 	
