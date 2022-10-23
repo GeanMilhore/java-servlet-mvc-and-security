@@ -1,8 +1,8 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.modelo;
 
 import java.util.Date;
-
 import javax.servlet.ServletException;
+import br.com.alura.gerenciador.utils.DateUtil;
 
 public class Empresa {
 

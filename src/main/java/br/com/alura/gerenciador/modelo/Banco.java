@@ -1,8 +1,7 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.modelo;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,9 +40,8 @@ public class Banco {
 				.findFirst();
 	}
 
-	public static void editarEmpresa(Integer idEmpresa, Empresa empresa) {
-		Integer indexOfEmpresa = empresas.indexOf(getEmpresaById(idEmpresa).get());
-		empresa.setId(idEmpresa);
+	public static void editarEmpresa(Empresa empresa) {
+		Integer indexOfEmpresa = empresas.indexOf(getEmpresaById(empresa.getId()).get());
 		empresas.set(indexOfEmpresa, empresa);
 	}
 	

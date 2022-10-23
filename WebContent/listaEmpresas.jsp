@@ -1,6 +1,5 @@
-<%@page import="br.com.alura.gerenciador.servlet.Banco"%>
-<%@page import="br.com.alura.gerenciador.servlet.Router"%>
-<%@page import="br.com.alura.gerenciador.servlet.Empresa"%>
+<%@page import="br.com.alura.gerenciador.utils.Router"%>
+<%@page import="br.com.alura.gerenciador.modelo.Empresa"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -17,7 +16,7 @@
 </head>
 	<body>
 			<c:if test="${not empty empresa}" >
-				Empresa ${ empresa } cadastrada com sucesso! </br>
+				Empresa ${ empresa } cadastrada com sucesso! <br>
 			</c:if>
 			
 			<h2>Empresas Cadastradas</h2>
@@ -25,8 +24,8 @@
 			<ul>
 				<c:forEach items="${empresas}" var="empresa">	
 					<li>${empresa.nome} - <fmt:formatDate pattern="dd/MM/yyyy" value="${empresa.dataAbertura }" />
-						| <a href="/gerenciador/crudEmpresa?id=${empresa.id}">editar</a>
-						| <a href="/gerenciador/crudEmpresa?idRemove=${empresa.id}">remover</a>
+						| <a href="/gerenciador/entrada?acao=VisualizaEmpresa&id=${empresa.id}">editar</a>
+						| <a href="/gerenciador/entrada?acao=RemoveEmpresa&idRemove=${empresa.id}">remover</a>
 					</li>
 				</c:forEach>
 			</ul>
