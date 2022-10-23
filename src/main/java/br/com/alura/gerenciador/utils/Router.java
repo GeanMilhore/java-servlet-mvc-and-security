@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.utils;
 
 public class Router {	
 	public static String printarRotaCadastrarEmpresa() {

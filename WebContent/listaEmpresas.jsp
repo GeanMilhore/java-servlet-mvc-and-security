@@ -1,6 +1,5 @@
-<%@page import="br.com.alura.gerenciador.servlet.Banco"%>
-<%@page import="br.com.alura.gerenciador.servlet.Router"%>
-<%@page import="br.com.alura.gerenciador.servlet.Empresa"%>
+<%@page import="br.com.alura.gerenciador.utils.Router"%>
+<%@page import="br.com.alura.gerenciador.modelo.Empresa"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>

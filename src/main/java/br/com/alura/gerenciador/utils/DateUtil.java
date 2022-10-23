@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

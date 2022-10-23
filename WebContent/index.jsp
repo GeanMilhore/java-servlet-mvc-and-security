@@ -1,4 +1,4 @@
-<%@page import="br.com.alura.gerenciador.servlet.Router"%>
+<%@page import="br.com.alura.gerenciador.utils.Router"%>
 <html>
 <body>
 	<%= Router.printarRotaCadastrarEmpresa() %>
