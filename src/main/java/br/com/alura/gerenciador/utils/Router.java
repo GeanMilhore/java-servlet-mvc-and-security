@@ -10,6 +10,6 @@ public class Router {
 	}
 	
 	public static String printarRotaHome() {
-		return "<a href='http://localhost:8080/gerenciador'> Home </a>";
+		return "<a href='http://localhost:8080/gerenciador/entrada?acao=Inicio'> Home </a>";
 	}
 }
