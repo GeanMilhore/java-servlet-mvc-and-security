@@ -11,8 +11,8 @@ import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 import br.com.alura.gerenciador.utils.DateUtil;
 
-public class EditaEmpresa {
-	public void executa(HttpServletRequest request, HttpServletResponse response) 
+public class AlteraEmpresa implements Acao{
+	public String executa(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
 		String idEmpresa = request.getParameter("id");
@@ -30,6 +30,6 @@ public class EditaEmpresa {
 
 		Banco.editarEmpresa(empresa);
 		
-		response.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
 	}
 }

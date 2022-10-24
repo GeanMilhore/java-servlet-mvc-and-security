@@ -1,17 +1,15 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.alura.gerenciador.acao.CadastraEmpresa;
-import br.com.alura.gerenciador.acao.EditaEmpresa;
-import br.com.alura.gerenciador.acao.ListaEmpresas;
-import br.com.alura.gerenciador.acao.RemoveEmpresa;
-import br.com.alura.gerenciador.acao.VisualizarEmpresa;
+import br.com.alura.gerenciador.acao.Acao;
 
 @WebServlet("/entrada")
 public class UnicaEntradaServlet extends HttpServlet {
@@ -21,21 +19,25 @@ public class UnicaEntradaServlet extends HttpServlet {
 		
 		String paramAcao = request.getParameter("acao");
 		
-		if(paramAcao.equals("ListaEmpresas")){			
-			ListaEmpresas acao = new ListaEmpresas();
-			acao.executa(request, response);
-		} else if(paramAcao.equals("RemoveEmpresa")){
-			RemoveEmpresa acao = new RemoveEmpresa();
-			acao.executa(request, response);
-		} else if(paramAcao.equals("VisualizaEmpresa")){
-			VisualizarEmpresa acao = new VisualizarEmpresa();
-			acao.executa(request, response);
-		} else if(paramAcao.equals("AlteraEmpresa")){
-			EditaEmpresa acao = new EditaEmpresa();
-			acao.executa(request, response);
-		} else if(paramAcao.equals("CadastraEmpresa")){
-			CadastraEmpresa acao = new CadastraEmpresa();
-			acao.executa(request, response);
+		String nomeDaClasse = "br.com.alura.gerenciador.acao."+ paramAcao; // Full Qualified Name
+		
+		String nome;
+		try {
+			Class classe = Class.forName(nomeDaClasse); 
+			Acao acao = (Acao) classe.newInstance();
+			nome = acao.executa(request, response);
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | ServletException
+				| IOException e) {
+			throw new ServletException(e);
+		}
+
+		String[] tipoEndereco = nome.split(":");
+		if(tipoEndereco[0].equals("forward")){
+
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/"+tipoEndereco[1]);	
+			rd.forward(request, response);
+		} else {
+			response.sendRedirect(tipoEndereco[1]);
 		}
 	}
 }
