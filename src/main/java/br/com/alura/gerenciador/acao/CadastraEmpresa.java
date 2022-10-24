@@ -11,7 +11,7 @@ import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 import br.com.alura.gerenciador.utils.DateUtil;
 
-public class CadastraEmpresa {
+public class CadastraEmpresa implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
