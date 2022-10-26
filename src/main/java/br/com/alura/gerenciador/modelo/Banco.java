@@ -8,6 +8,7 @@ import java.util.Optional;
 public class Banco {
 
 	private final static List<Empresa> empresas = new ArrayList<>();
+	private static final List<Usuario> usuarios = new ArrayList<>();
 	
 	private static Integer proximoId = Integer.valueOf(1);
 	
@@ -20,6 +21,17 @@ public class Banco {
 		
 		adicionar(empresa1);		
 		adicionar(empresa2);
+		
+		Usuario u1 = new Usuario();
+		u1.setLogin("gean");
+		u1.setSenha("curso");
+		
+		Usuario u2 = new Usuario();
+		u2.setLogin("manu");
+		u2.setSenha("senhamanu");
+		
+		usuarios.add(u1);
+		usuarios.add(u2);
 	}
 	
 	public static void adicionar(Empresa empresa) {
@@ -47,6 +59,10 @@ public class Banco {
 	
 	public static void removerEmpresa(Integer idEmpresa) {
 		empresas.remove(getEmpresaById(idEmpresa).get());
+	}
+
+	public static Optional<Usuario> existeUsuario(String senha, String login) {
+		return usuarios.stream().filter(usuario -> usuario.ehIgual(login, senha)).findFirst();
 	}
 
 }

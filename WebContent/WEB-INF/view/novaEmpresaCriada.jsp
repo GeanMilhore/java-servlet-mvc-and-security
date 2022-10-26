@@ -1,10 +1,10 @@
-<%@page import="br.com.alura.gerenciador.utils.Router"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
 <body>
 
-	<%= Router.printarRotaCadastrarEmpresa() %>
-	<%= Router.printarRotaListarEmpresas() %>
+	<c:import url='cadastrar-empresas-parcial.jsp' />
+	<c:import url='listar-empresas-parcial.jsp' />
+	<c:import url='logout-parcial.jsp' />
 </body>
 </html>
