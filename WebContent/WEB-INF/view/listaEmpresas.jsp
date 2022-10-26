@@ -1,4 +1,3 @@
-<%@page import="br.com.alura.gerenciador.utils.Router"%>
 <%@page import="br.com.alura.gerenciador.modelo.Empresa"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -15,6 +14,9 @@
 </script>
 </head>
 	<body>
+			Usuario Logado: ${ usuarioLogado.login }	
+			<c:import url='logout-parcial.jsp' />
+	
 			<c:if test="${not empty empresa}" >
 				Empresa ${ empresa } cadastrada com sucesso! <br>
 			</c:if>
@@ -29,6 +31,6 @@
 					</li>
 				</c:forEach>
 			</ul>
-			<%= Router.printarRotaCadastrarEmpresa() %>
+			<c:import url='cadastrar-empresa-parcial.jsp' />
 	</body>
 </html>

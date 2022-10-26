@@ -9,15 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:import url='logout-parcial.jsp' />
 
 	<form action="${linkServletNovaEmpresa}" method="POST">
 		<input type="hidden" name="id" />
-		Nome: <input type="text" name="nome" />
-		Data Abertura: <input type="date" name="data" />
-		<input type="hidden" name="acao" value="CadastraEmpresa" />
-		<input type="submit" value="Enviar"/>
-	</form>	
-	<c:import url='home-parcial.jsp' />
+		Login: <input type="text" name="login" />
+		Senha: <input type="password" name="senha" />
+		<input type="hidden" name="acao" value="Login" />
+		<input type="submit" value="Entrar"/>
+	</form>
 </body>
 </html>
